@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>Book Suggester</title>
+</head>
+
+<style>
+    body{
+        background: #316B83;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #63B4B8, #316B83);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #63B4B8, #316B83); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    }
+    h1, h2{
+        color: #191A19;
+    }
+    .container{
+        margin-top: 100px;
+    }
+    .btn{
+        background-color: #316B83;
+    }
+    a:hover{
+        background-color: #63B4B8;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="card text-center p-5">
+            <h1 class="display-4  ">Don't know which book to read next?</h1>
+            <p class="lead display-4">Let us suggest.</p>
+            <hr class="my-4">
+            <p class="lead">
+                <form action="{{ url_for('find') }}" method="POST">
+                <div class="form-group row">
+                    <div class="col-md-9">
+                        <select class="form-control form-control-lg mt-4" id="sel1" name="sel1">
+                            <option selected disabled>Choose a genre</option>
+                            {% for i in genre %}
+                            <option>{{ i }}</option>
+                            {% endfor %}
+                          </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <button class="btn btn-lg btn-block mt-4 text-white" type="submit">Find</button>
+                    </div>
+                  </div>
+                </form>
+            </p>
+          </div>
+    </div>
+
+    
+    
+</body>
+
+</html>
